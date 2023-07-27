@@ -78,7 +78,8 @@ npm run test
 
 ## Considerations
 
-- Add JSDoc comments to functions.
+Normally `.env` files would not be included. As they only contain a link to local host I am including them here for simplicity
+
 
 ### Backend considerations
 
@@ -95,7 +96,7 @@ This provides a more accurate view of the SPL ecosystem, however, the related en
 - Store basic data in a database instead of pulling it on initial load.
 - For a larger application, Use a persistent caching library like Redis.
 - Store time series data for TPS on the backend. Itinialize cron job to calculate the data at a set interval and send it to the FE. This way the client can see historical data as well.
-
+- Add JSDoc comments to functions.
 
 ### Frontend considerations
 

@@ -18,7 +18,8 @@ Thumbs.db
 /Backend/node_modules
 
 # dotenv environment variables file
-/Backend/.env
+# include for now as they don't contain sensitive info
+# /Backend/.env
 
 # build
 /Backend/dist
@@ -44,7 +45,8 @@ Thumbs.db
 /Frontend/*.iml
 
 # dotenv environment variables file
-/Frontend/.env
+# include for now as they don't contain sensitive info
+# /Frontend/.env
 
 # Ignore logs
 /Frontend/npm-debug.log*
