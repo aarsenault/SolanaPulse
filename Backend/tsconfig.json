@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "types": ["node", "node-fetch"],
+    "typeRoots": ["node_modules/@types"],
+  },
+  "include": ["src/**/*.ts"],
+}
