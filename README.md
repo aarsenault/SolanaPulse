@@ -106,7 +106,7 @@ This provides a more accurate view of the SPL ecosystem, however, the related en
 - Currently, there is no app-wide state management. We need to wait for the data to populate when loading the TPS page, or after refreshing the page.
 - We need loading animations or skeletonized components to display before the data is populated.
 - Add links to a chain explorer for each address shown on the FE.
-- The dark theme needs improvement for better contrast on animations, graphs, and text.
+- The dark theme is very rudimentary. The theme needs improvement for better contrast on animations, graphs, and text.
 - We need to handle errors properly. If we get an error back from the API, we should display an error component and attempt a refetch.
 - Make the application more accessible by ensuring sufficient color contrast, enabling keyboard accessibility, and using ARIA roles for screen readers.
 
