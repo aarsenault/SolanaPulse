@@ -18,11 +18,11 @@ To setup the project locally, follow the below steps:
 git clone git@github.com:aarsenault/SolanaPulse.git
 ```
 
-2. Install dependencies for the backend:
+1. Install dependencies for the backend
 
-From the project root:
+
 ```bash
-cd ./backend
+cd ./SolanaPulse/Backend
 npm install
 ```
 
@@ -30,7 +30,7 @@ npm install
 
 From the project root:
 ```bash
-cd ./frontend
+cd ./Frontend
 npm install
 ```
 
