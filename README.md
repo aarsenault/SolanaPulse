@@ -40,7 +40,7 @@ npm install
 
 From the project root:
 ```bash
-cd ./backend
+cd ./Backend
 npm run start
 ```
 
@@ -49,7 +49,7 @@ The server will run on [http://localhost:3000](http://localhost:3000)
 2. Start the frontend server:
 
 ```bash
-cd ./frontend
+cd ./Frontend
 npm run start
 ```
 
@@ -68,7 +68,7 @@ The test suite is currently available only for the frontend repo. To run the tes
 1. Make sure you're in the frontend repo:
 
 ```bash
-cd ./frontend
+cd ./Frontend
 ```
 
 2. Run the tests:
@@ -79,7 +79,7 @@ npm run test
 
 ## Overall Considerations:
 
-- All three charts have very poor initial load times.Some ideas on how to address the load times are in the backend section.
+- All three charts have very poor initial load times. Some ideas on how to address the load times are in the backend section.
 
 - Normally `.env` files would not be included. As they only contain a link to local host I am including them here for simplicity
 
