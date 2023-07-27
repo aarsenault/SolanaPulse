@@ -2,7 +2,7 @@
 
 SolanaPulse is a project that provides real-time insights into the Solana blockchain. It features a responsive design with themes and fetches real-time data for High Growth Accounts, Transactions per Second (TPS), and Market Cap for the SPL ecosystem.
 
-The app is made with React, Typescript, and Vite on the front end, and uses Node.js, Typescript, and an express server on the backend. 
+The app is made with React, Typescript, and Vite on the front end, and uses Node.js, Typescript, and an express server on the backend.
 
 
 <img width="1234" alt="Screenshot 2023-07-27 at 4 22 48 PM" src="https://github.com/aarsenault/SolanaPulse/assets/5014978/71a93ca1-db2a-4ec2-91a9-8a69f8d61a12">
