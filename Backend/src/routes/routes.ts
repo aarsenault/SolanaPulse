@@ -64,7 +64,6 @@ router.get('/topMarketCapTokens', async (req: Request, res: Response) => {
   }
 });
 
-// Endpoint to get the TPS data
 router.get('/tps', async (req, res) => {
   try {
     const trueTps = await calculateTrueTps();
@@ -76,7 +75,6 @@ router.get('/tps', async (req, res) => {
   }
 });
 
-// Endpoint to surface the sol ballance for 10 wallets
 router.get('/solBallanceTop10', async (req, res) => {
   try {
     const solBallanceTop10 = await getSolBalances(walletMap);

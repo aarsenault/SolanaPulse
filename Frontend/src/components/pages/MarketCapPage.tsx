@@ -24,9 +24,11 @@ const MarketCapPage: React.FC = () => {
         const response = await getMarketCapTokens();
         const sortedData = response.data.sort(
           (a: MarketCapData, b: MarketCapData) => b.marketCap - a.marketCap
-        ); // Descending order
-        const top15Data = sortedData.slice(0, 15); // Take the top 15
-        const restData = sortedData.slice(15); // Take the rest, and group them together as a single slice
+        );
+        // Take the top 15 to not crowd the pie chart
+        const top15Data = sortedData.slice(0, 15);
+        // Take the rest, and group them together as a single slice
+        const restData = sortedData.slice(15);
 
         // Compute the market cap of the rest
         let restMarketCap = 0;
@@ -64,7 +66,8 @@ const MarketCapPage: React.FC = () => {
       text: "Market Cap of Top Tokens",
       align: "center",
     },
-    labels: data.map((item) => `${item.symbol} (${item.address})`), // Show both symbol and address in the labels
+    // Show both symbol and address in the labels
+    labels: data.map((item) => `${item.symbol} (${item.address})`),
     series: data.map((item) => item.marketCap),
     tooltip: {
       y: {

@@ -67,7 +67,6 @@ const HighGrowthAccountsPage: React.FC = () => {
     },
   ];
 
-
   if (isLoading) {
     return <div>Loading...</div>;
   }

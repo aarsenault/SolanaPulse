@@ -17,9 +17,9 @@ describe("CardBanner Component", () => {
       </MantineProvider>
     );
 
-    const highGrowthCard = getByText(/High Growth Accounts/i);
-    const tpsCard = getByText(/Transactions Per Second/i);
-    const marketCapCard = getByText(/MarketCap/i);
+    const highGrowthCard = getByText("High Growth Accounts");
+    const tpsCard = getByText("Transactions Per Second");
+    const marketCapCard = getByText("MarketCap");
 
     fireEvent.click(highGrowthCard);
     expect(mockNavigate).toHaveBeenCalledWith("/high-growth-accounts");

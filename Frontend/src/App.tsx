@@ -26,7 +26,7 @@ const StyledContainer = styled(Container)`
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
-  width: 100%;  
+  width: 100%;
   margin-top: 60px; // to account for header
 
   @media (max-width: 576px) {
@@ -66,9 +66,3 @@ function App() {
 }
 
 export default App;
-
-// todo = make it so the cards stack on small screens
-// todo = make a pie chart animation
-// todo = make a line graph animation
-// todo = build out the pie chart
-// todo = build out the

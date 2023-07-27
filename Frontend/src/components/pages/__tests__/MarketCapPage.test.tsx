@@ -3,7 +3,6 @@ import MarketCapPage from "../MarketCapPage";
 import { ApexOptions } from "apexcharts";
 import { getMarketCapTokens } from "../../../services/api";
 
-
 // Need to mock this as Jest doesn't understand VITE's import.meta.env
 // Ideally move this into a jest initializer file so it doesn't need to be included in each test.
 jest.mock("../../../services/config", () => ({
@@ -65,7 +64,7 @@ test("passes the correct data to ApexChart successful API call", async () => {
     const options: ApexOptions = JSON.parse(chart.dataset.options);
 
     if (options.labels && options.series) {
-      expect(options.labels.length).toBe(mockData.length + 1); // Extra one for 'All other' data point
+      expect(options.labels.length).toBe(mockData.length + 1); // + 1 for 'All other' data point
       expect(options.series.length).toBe(mockData.length + 1);
     } else {
       fail("Labels or Series in options are not defined");
@@ -83,6 +82,5 @@ test("handles API call failure", async () => {
   render(<MarketCapPage />);
 
   await waitFor(() => expect(console.error).toHaveBeenCalled());
-  // Still showing loading because data fetch failed
   expect(screen.getByText("Loading...")).toBeInTheDocument();
 });

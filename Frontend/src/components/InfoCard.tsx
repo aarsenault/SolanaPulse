@@ -6,7 +6,7 @@ interface InfoCardProps {
   title: string;
   subTitle: string;
   onClick: React.MouseEventHandler<HTMLDivElement>;
-  AnimationComponent: React.ComponentType<BarChartAnimationProps>; // Make this more general
+  AnimationComponent: React.ComponentType<BarChartAnimationProps>; // TODO Make this type more general
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({

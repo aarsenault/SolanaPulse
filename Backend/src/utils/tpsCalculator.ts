@@ -10,13 +10,14 @@ let startSlot: number | null = null;
 let endSlot: number | null = null;
 let endTime: number | null = null;
 
-// Function to calculate true TPS (user generated transactions)
+// Function to calculate 'true' TPS (user generated transactions)
 export async function calculateTrueTps(): Promise<number | null> {
   try {
     if (startTime && startSlot && endTime && endSlot) {
       const elapsedSeconds = (endTime - startTime) / 1000;
 
       // TODO - not currently counting the number of transactions existing in block
+      // Make this more accurate
       const numTransactions = await getCachedData(
         `transactionsWithinBlocks${startSlot}${endSlot}`,
         () => countTransactionsWithinBlocks(startSlot, endSlot),
@@ -79,7 +80,6 @@ async function getNumTransactionsInBlock(blockNumber: number) {
     ); // 0 cahceDuration means store blocks indefinitely as they are immutable
 
     if (confirmedBlock && confirmedBlock.transactions) {
-      // Array of transactions in the block
       transactions = confirmedBlock.transactions.length;
     }
   } catch (error) {
@@ -95,7 +95,8 @@ export async function updateBlockTimes(): Promise<void> {
   const startTimeTmp = Date.now();
 
   // TODO - make this variable or move to constants file
-  await delay(5000); // 5 second sampling time
+  // 5 second sampling time for true tps
+  await delay(5000);
 
   const endSlotTmp = await connection.getSlot('finalized');
   const endTimeTmp = Date.now();

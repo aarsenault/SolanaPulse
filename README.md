@@ -55,7 +55,7 @@ npm run start
 
 ## Creating a Development Build
 
-Run the following command in the project root:
+Run the following command in the backend and frontend roots to generate respective dist folders:
 
 ```bash
 npm run build
@@ -77,9 +77,11 @@ cd ./frontend
 npm run test
 ```
 
-## Considerations
+## Overall Considerations:
 
-Normally `.env` files would not be included. As they only contain a link to local host I am including them here for simplicity
+- All three charts have very poor initial load times.Some ideas on how to address the load times are in the backend section.
+
+- Normally `.env` files would not be included. As they only contain a link to local host I am including them here for simplicity
 
 
 ### Backend considerations
@@ -101,10 +103,12 @@ This provides a more accurate view of the SPL ecosystem, however, the related en
 
 ### Frontend considerations
 
+The front end is making use of Matine (https://mantine.dev/) as a react component library for basic styles and elements, ApexCharts for the data visualization.
 
 #### Future FE improvements
 - Currently, there is no app-wide state management. We need to wait for the data to populate when loading the TPS page, or after refreshing the page.
 - We need loading animations or skeletonized components to display before the data is populated.
+- Better navigation within the app. Currently you have to rely only on the browser's back navigation.
 - Add links to a chain explorer for each address shown on the FE.
 - The dark theme is very rudimentary. The theme needs improvement for better contrast on animations, graphs, and text.
 - We need to handle errors properly. If we get an error back from the API, we should display an error component and attempt a refetch.

@@ -51,7 +51,7 @@ export async function fetchTokenSupply(address: string): Promise<number | null> 
   let currentSupply: number | null = null;
 
   try {
-    // Cache for 10 mins, ratelimit to 1 call per 30ms
+    // Cache for 10 mins
     const solanaData: SolanaRpcData = await getCachedData(
       `rawSupply${address}`,
       () => connection.getTokenSupply(new PublicKey(address)),
@@ -127,11 +127,8 @@ export async function fetchSPLTokenList(): Promise<any> {
 export async function getTopMarketCapTokens(numTokens?: number): Promise<TokenMarketData[]> {
   try {
     const splTokenList = await fetchSPLTokenList();
-    // Extract the token data from the response
     const listOfTokens = Object.values(splTokenList.data)[4] as TokenData[];
-
     const tokensPriceList = await getCachedData(`TokenPriceData`, () => fetchTokensPricesData(listOfTokens), 90000);
-
     const marketData = await getCachedData(`MarketCaps`, () => calculateMarketCaps(tokensPriceList), 90000);
 
     // TODO - cache this sorted data as well.
@@ -151,7 +148,7 @@ export async function getTopMarketCapTokens(numTokens?: number): Promise<TokenMa
 async function fetchTokensPricesData(tokens: TokenData[]): Promise<TokenData[]> {
   // TODO: make these consts either params, or constants in a consts file
   const batchSize = 100;
-  const delayBetweenRequestsMs = 5; //
+  const delayBetweenRequestsMs = 5;
 
   const responseData: any[] = [];
 
@@ -179,6 +176,7 @@ async function fetchTokensPricesData(tokens: TokenData[]): Promise<TokenData[]> 
   const mergedData = tokens.map((token) => {
     const responseItem = responseData.find((item) => item.id === token.address);
 
+    // Adding in the previous symbol and name data to display in the pie chart
     return {
       ...token,
       ...responseItem,
@@ -195,7 +193,6 @@ function sortByMarketCapDescending(data: TokenMarketData[]): TokenMarketData[] {
     if (a.marketCap === null) return 1;
     if (b.marketCap === null) return -1;
 
-    // Sort in descending order based on marketCap
     return b.marketCap - a.marketCap;
   });
 

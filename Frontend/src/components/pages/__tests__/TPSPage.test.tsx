@@ -8,6 +8,9 @@ import { TPSData } from "../TPSPage";
 // Need to mock this as Jest doesn't understand VITE's import.meta.env
 // Ideally move this into a jest initializer file so it doesn't need to be included in each test.
 
+// to avoid console.error output in test run for error case
+console.error = jest.fn();
+
 interface SeriesData {
   name: string;
   data: {
@@ -22,9 +25,6 @@ jest.mock("../../../services/config", () => ({
 }));
 
 jest.mock("../../../services/api");
-
-// to avoid console.error output in test run for error case
-console.error = jest.fn();
 
 jest.mock("react-apexcharts", () => ({
   __esModule: true,
@@ -86,11 +86,9 @@ test("passes the correct TPS data after successful API call", async () => {
 test("handles API call failure", async () => {
   (getTps as jest.Mock).mockRejectedValueOnce(new Error("API Error"));
 
-  console.error = jest.fn(); // to avoid console.error output in test run
-
   render(<TPSPage />);
 
   await waitFor(() => expect(console.error).toHaveBeenCalled());
 
-  expect(screen.getByText("Loading...")).toBeInTheDocument(); // Still showing loading because data fetch failed
+  expect(screen.getByText("Loading...")).toBeInTheDocument();
 });
